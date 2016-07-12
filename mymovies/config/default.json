@@ -1,0 +1,23 @@
+{
+  "db": "127.0.0.1/movies",
+  "server": {
+    "dbConnectionRetry": true,
+    "maxConnectionRetryTime": 60,
+    "port": 5000
+  },
+  "app":{
+    "url": "http://127.0.0.1/"
+  },
+  "service":{
+    "protocol": "http://",
+    "host": "localhost:5000",
+    "pathname": "/service"
+  },
+  "redis":{
+    "host": "127.0.0.1",
+    "port": 6379
+  },
+  "logs":{
+    "screenshotFolder": "/dev/shm"
+  }
+}

@@ -1,0 +1,32 @@
+<div ng-controller="home"><!-- init controller -->
+
+        <div class="grid" ng-repeat="movie in movies">
+            <h3>{{movie.Title}}</h3>
+            <a href="/#/movie/{{movie.imdbID}}"><img src="{{movie.Poster}}" title="video-name"/></a>
+
+            <div class="time">
+                <span>00:10</span>
+            </div>
+            <div class="grid-info">
+                <div class="video-share">
+                    <ul>
+                        <li><a href="#"><img src="images/likes.png" title="links"/></a></li>
+                        <li><a href="#"><img src="images/link.png" title="Link"/></a></li>
+                        <li><a href="#"><img src="images/views.png" title="Views"/></a></li>
+                    </ul>
+                </div>
+                <div class="video-watch">
+                    <a href="single.html">Watch Now</a>
+                </div>
+                <div class="clear"></div>
+                <div class="lables">
+                    <p>Labels:<a href="categories.html">Lorem</a></p>
+                </div>
+            </div>
+        </div>
+
+
+    <div class="clear"></div>
+
+
+</div><!-- end controller -->

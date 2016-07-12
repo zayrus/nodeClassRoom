@@ -1,0 +1,131 @@
+swagger: '2.0'
+info:
+  title: MOVIES REST
+  description: 'Node.js course'
+  version: 1.0.0
+host: 'localhost:5000'
+basePath: /service/
+consumes:
+  - application/json
+produces:
+  - application/json
+
+paths:
+  /movies:
+    get:
+      tags:
+        - movies
+      summary: Get all movies
+      x-swagger-router-controller: movies.search
+      responses:
+        '200':
+          description: movie
+          schema:
+            $ref: '#/definitions/movie'
+    post:
+      tags:
+        - movies
+      summary: post movie
+      x-swagger-router-controller: movies.add
+      parameters:
+        - name: title
+          description: Movie properties
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/movie"
+      responses:
+        '200':
+          description: movie
+          schema:
+            $ref: '#/definitions/movie'
+        
+  /movies/{id}:
+    get:
+      tags:
+        - movies
+      summary: get movie by id
+      x-swagger-router-controller: movies.search
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: movie
+          schema:
+            $ref: '#/definitions/movie'
+    put:
+      tags:
+        - movies
+      summary: update movie by id
+      x-swagger-router-controller: movies.update
+      parameters:
+        - name: id
+          description: Movie id
+          type: string
+          in: path
+          required: true
+        - name: title
+          description: thing
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/movie"
+      responses:
+        '200':
+          description: movie
+          schema:
+            $ref: '#/definitions/movie'
+    delete:
+      tags:
+        - movies
+      summary: delete movie by id
+      x-swagger-router-controller: movies.delete
+      parameters:
+        - name: id
+          description: Movie id
+          type: string
+          in: path
+          required: true
+      responses:
+        '200':
+          description: movie
+          schema:
+            $ref: '#/definitions/movie'
+
+  /movies/search:
+    get:
+      tags:
+        - movies
+      summary: get movie by id
+      x-swagger-router-controller: movies.search
+      parameters:
+        - name: title
+          in: query
+          required: false
+          type: string
+        - name: year
+          in: query
+          required: false
+          type: string
+
+      responses:
+        '200':
+          description: movie
+          schema:
+            $ref: '#/definitions/movie'
+
+
+definitions:
+  movie:
+    type: object
+    properties:
+      _id:
+        type: string
+      name:
+        type: string
+      image:
+        type: string
+
