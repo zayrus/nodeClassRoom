@@ -16,7 +16,7 @@ function Movies(main) {
             var year  = req.swagger.params.year ? req.swagger.params.year.value : null;
             var id  = req.swagger.params.id ? req.swagger.params.id.value : null;
 
-            main.libs.Movies.search({title: title, year: year, _id: id})
+            main.libs.Movies.search({name: title, year: year, id: id})
             .then((movies)=>{
                     res.json(movies);
                 })
@@ -37,16 +37,16 @@ function Movies(main) {
             debug(".put called");
             
             var title  = req.swagger.params.title;
-            var id  = req.swagger.params.id;
-            
-            main.libs.Movies.put({ title: title,  _id: id})
+            var id  = req.swagger.params.id; 
+            console.log('title'+title)            
+            console.log('id'+id)            
+            main.libs.Movies.put({ id: id }, req.body)
             .then((movies)=>{
                 res.json(movies);
             })
             .catch(next);
         }
-
-
+        
     };//end return
 }
 

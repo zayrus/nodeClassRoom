@@ -28,7 +28,7 @@ paths:
       summary: post movie
       x-swagger-router-controller: movies.add
       parameters:
-        - name: title
+        - name: movie
           description: Movie properties
           in: body
           required: true

@@ -22,9 +22,9 @@ Movies.prototype.search = function(obj){
 
         let query = {};
 
-        if(obj.title) query.Title = new RegExp(obj.title);
-        if(obj.year) query.Year = obj.year;
-        if(obj.id) query.imdbID = obj.id;
+        if(obj.title) query.name = new RegExp(obj.title);
+        if(obj.year) query.year = obj.year;
+        if(obj.id) query._id = obj.id;
 
         self.db.movies.find(query, {}, (err, docs)=>{
             err ? reject(err) : resolve(docs);
@@ -45,14 +45,14 @@ Movies.prototype.add = function(obj){
     });
 }
 
-Movies.prototype.put = function(obj){
+Movies.prototype.put = function(obj, obj2){
     var self = this;
 
-    debug("update called: "+JSON.stringify(obj));
-
+    debug("update called: "+JSON.stringify(obj2));
+    console.log(obj.id.value)
     return new Promise((resolve, rejec)=>{
-
-        self.db.movies.update( obj, {}, (err, docs)=>{
+        
+        self.db.movies.update( obj.id.value, obj2, {}, (err, docs)=>{
             err ? reject(err) : resolve(docs);
         })
     });
