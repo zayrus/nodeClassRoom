@@ -86,7 +86,7 @@ function makeControllers(main){
         'movies.search_get': controllers.Movies.search,
         'movies.add_post': controllers.Movies.add,
         'movies.update_put': controllers.Movies.put
-
+       // 'movies.delete_delete': controller.Movies.delete
     }, main.announce);
 }
 

@@ -45,14 +45,25 @@ Movies.prototype.add = function(obj){
     });
 }
 
-Movies.prototype.put = function(obj, obj2){
+Movies.prototype.put = function(id, movie){
     var self = this;
 
-    debug("update called: "+JSON.stringify(obj2));
-    console.log(obj.id.value)
+    //debug("update called: "+JSON.stringify());
     return new Promise((resolve, rejec)=>{
         
-        self.db.movies.update( obj.id.value, obj2, {}, (err, docs)=>{
+        self.db.movies.update( {"_id":id}, movie, {}, (err, docs)=>{
+            err ? reject(err) : resolve(docs);
+        })
+    });
+}
+
+Movies.prototype.delete = function(id){
+    var self = this;
+
+    //debug("update called: "+JSON.stringify());
+    return new Promise((resolve, rejec)=>{
+        
+        self.db.movies.remove( {"_id":id}, {}, (err, docs)=>{
             err ? reject(err) : resolve(docs);
         })
     });

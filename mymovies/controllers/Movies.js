@@ -36,11 +36,21 @@ function Movies(main) {
         'put': (req, res, next)=>{
             debug(".put called");
             
-            var title  = req.swagger.params.title;
-            var id  = req.swagger.params.id; 
-            console.log('title'+title)            
-            console.log('id'+id)            
-            main.libs.Movies.put({ id: id }, req.body)
+            var id  = req.swagger.params.id.value; 
+
+            main.libs.Movies.put(id, req.body)
+            .then((movies)=>{
+                res.json(movies);
+            })
+            .catch(next);
+        },
+        
+        'delete': (req, res, next)=>{
+            debug(".delete called");
+            
+            var id  = req.swagger.params.id.value; 
+
+            main.libs.Movies.delete(id)
             .then((movies)=>{
                 res.json(movies);
             })
