@@ -20,7 +20,8 @@ function searchOmdb(title, cb){
       console.log(data)
       var movie = {
         name: data.Title,
-        image: data.Poster
+        image: data.Poster,
+        imdbrating: data.imdbRating
       }
       debug('omdb ' + JSON.stringify(movie))
       cb(movie) 
