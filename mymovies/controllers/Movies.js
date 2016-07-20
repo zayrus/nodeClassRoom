@@ -18,8 +18,8 @@ function Movies(main) {
 
             main.libs.Movies.search({name: title, year: year, id: id})
             .then((movies)=>{
-                    res.json(movies);
-                })
+              res.json(movies);
+            })
             .catch(next);
         },
         

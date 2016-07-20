@@ -1,8 +1,8 @@
 <div ng-controller="home"><!-- init controller -->
 
         <div class="grid" ng-repeat="movie in movies">
-            <h3>{{movie.Title}}</h3>
-            <a href="/#/movie/{{movie.imdbID}}"><img src="{{movie.Poster}}" title="video-name"/></a>
+            <h3>{{movie.name}}</h3>
+            <a href="/#/movie/{{movie.imdbID}}"><img src="{{movie.image}}" title="video-name"/></a>
 
             <div class="time">
                 <span>00:10</span>
